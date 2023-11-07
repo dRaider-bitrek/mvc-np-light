@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/main.css" type="text/css"/>
+
+</head>
+<body>
+<div class="header">
+<h2>New Device</h2>
+</div>
+
+<form th:method = "POST" th:action="@{/device}" th:object="${device}">
+
+        <label for="imei">IMEI:</label>
+    <br>
+        <input type="text" th:field = "*{imei}" id="imei">
+    <br>
+        <label for="hw">HW:</label>
+    <br>
+        <input type="text" th:field = "*{hw}" id="hw">
+    <br>
+        <label for="sw">SW:</label>
+    <br>
+        <input type="text" th:field = "*{sw}" id="sw">
+    <br>
+        <input type="submit" value="Add Device" />
+
+</form>
+<br>
+<table>
+    <tr>
+        <th>IMEI</th>
+        <th>HW</th>
+        <th>SW</th>
+        <th>Url</th>
+    </tr>
+    <tr th:each = "device : ${devices}">
+        <td th:text = "${device.imei}"></td>
+        <td th:text = "${device.hw}"></td>
+        <td th:text = "${device.sw}"></td>
+        <td><a th:href = "@{/device/{id}(id=${device.imei})} ">imei</a></td>
+
+    </tr>
+</table>
+</body>
+</html>

@@ -79,6 +79,14 @@ public class ShelvingRepository {
             result.add(shelving.getState(3));
             result.add(shelving.getState(4));
         }
+//        if(hostModel.getHost().equals("025")|| hostModel.getHost().equals("026")){
+//            var shelving = moc.get("STR");
+//            shelving.updateShelf(hostModel);
+//
+//
+//        }
+
+
         return result;
     }
 
